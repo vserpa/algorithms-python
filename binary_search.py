@@ -6,7 +6,7 @@ def binary_search(arrList, item):
   end = len(arrList) - 1
   
   while start <= end:
-    middle = (start + end) / 2
+    middle = int((start + end) / 2)
     element = arrList[middle]
     
     if element == item:
@@ -23,4 +23,4 @@ def binary_search(arrList, item):
 
 my_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-print binary_search(my_list, 8)
+print(binary_search(my_list, 8))
