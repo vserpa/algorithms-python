@@ -1,2 +1,2 @@
-# algorithms-python
+# foundation-algorithms-python
 Algorithms and Data Structures in Python
