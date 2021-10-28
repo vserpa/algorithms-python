@@ -1,4 +1,5 @@
 import math
+import time
 
 # Primo: somente dividido por 1 e ele mesmo
 # Fatoração: divisão de um número não primo por primos
@@ -19,7 +20,7 @@ def is_prime_eratostenes(number):
 
 	# números pares não são primos (exceto o 2)
 	if number % 2 == 0:
-		return False;
+		return False
 
 	if number == 3:
 		return True
@@ -64,16 +65,26 @@ def is_prime(number):
 	if number == 1:
 		return False
 	
-	mult = 0
-
+	mult = False
+	
 	for count in range(2, number):
 		if (number % count == 0):
-			mult += 1
+			mult = True
+			break
 
-	if mult == 0:
-		return True
-	else:
+	if mult:
 		return False
+	else:
+		return True
+
+def primes_gen(final_number):
+	primes = [2]
+	for n in range(3, final_number):
+		if (is_prime(n)):
+			primes.append(n)
+
+	return primes
+
 
 # no loop, works only 1 to 100
 def is_prime_candidate(n):
@@ -91,9 +102,12 @@ def is_prime_candidate(n):
 	
 	return True
 
+
+time_start = time.time()
+
 is_correct = True
 
-for number in range(1, 1001):
+for number in range(1, 101):
     candidate_result = is_prime_candidate(number)
     system_result = is_prime(number)
     if (candidate_result != system_result):
@@ -104,3 +118,8 @@ if (is_correct):
     print('All sounds good!')
 else:
     print('Problems found!!!!')
+
+print(primes_gen(200000))
+
+time_end = time.time()
+print("Executado em %.3f segundos" % (time_end - time_start))

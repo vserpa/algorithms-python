@@ -1,12 +1,12 @@
 import time
 
-num = int(input("Type the limit number. Ex: 1000: "))
+# num = int(input("Type the limit number. Ex: 1000: "))
 time_start = time.time()
 
-print("Prime numbers between 0 and %i " % num)
+# print("Prime numbers between 0 and %i " % num)
 
-primes_list = [2,]
-print(primes_list[0])
+# primes_list = [2,]
+# print(primes_list[0])
 
 def gen_prime_numbers_1(primes_list, num):
 
@@ -33,10 +33,36 @@ def gen_prime_numbers_1(primes_list, num):
             print(x)
             num_divisoes = 0
 
+def gen_prime_numbers_2():
+    limite = 2750159 + 1
 
-gen_prime_numbers_1(primes_list, num)
+    primos = []
+    nao_primo = set()
 
-print("Existe %i números primos entre 0 e %i" % (len(primes_list), num))
+    for n in range(2, limite):
+
+        if n in nao_primo:
+            continue
+
+        for f in range(n * 2, limite, n):
+            nao_primo.add(f)
+
+        primos.append(n)
+
+    return primos
+
+def primo(idx, p):
+    return p[idx]
+
+p = gen_prime_numbers_2()
+print(primo(7, p))
+print(primo(1, p))
+print(primo(199999, p))
+print(primo(4, p))
+
+# gen_prime_numbers_1(primes_list, num)
+
+# print("Existe %i números primos entre 0 e %i" % (len(primes_list), num))
 
 time_end = time.time()
 print("Executado em %.3f segundos" % (time_end - time_start))
