@@ -1,9 +1,5 @@
-# deve-se conhecer de antemão qual é o último primo dentro da cadeia de números primos a ser gerado
-# ex: dentro de uma cadeia de 200.000 números primos, o maior primo é 2.750.159
 from math import floor, log
 import time
-
-time_start = time.time()
 
 def sieve_of_eratosthene(num_primes):
 
@@ -34,9 +30,11 @@ def sieve_of_eratosthene(num_primes):
 
     return prime_numbers
 
+time_start = time.time()
+
 primes = list(sieve_of_eratosthene(200000))
 
 time_end = time.time()
-print("Executado em %.3f segundos" % (time_end - time_start))
+print("Run in %.3f seconds" % (time_end - time_start))
 
-print("Saída:", [primes[i] for i in [7, 1, 199999, 4]]) # Saída: [19, 3, 2750159, 11]
+print("Saída:", [primes[i] for i in [7, 1, 199999, 4]]) # Print: [19, 3, 2750159, 11]

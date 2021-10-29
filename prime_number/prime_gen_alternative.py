@@ -51,18 +51,18 @@ def gen_prime_numbers_2():
 
     return primos
 
-def primo(idx, p):
+def prime(idx, p):
     return p[idx]
 
 p = gen_prime_numbers_2()
-print(primo(7, p))
-print(primo(1, p))
-print(primo(199999, p))
-print(primo(4, p))
+print(prime(7, p))
+print(prime(1, p))
+print(prime(199999, p))
+print(prime(4, p))
 
 # gen_prime_numbers_1(primes_list, num)
 
-# print("Existe %i números primos entre 0 e %i" % (len(primes_list), num))
+# print("Exists %i prime numbers between 0 and %i" % (len(primes_list), num))
 
 time_end = time.time()
-print("Executado em %.3f segundos" % (time_end - time_start))
+print("Run in %.3f seconds" % (time_end - time_start))
